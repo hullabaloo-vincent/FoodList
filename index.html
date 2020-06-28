@@ -1,0 +1,23 @@
+<html>
+<head>
+    <title>Can Taite Eat This</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" src="search.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" type="text/javascript"></script>
+    <link href='mainStyle.css' rel='stylesheet' />
+</head>
+
+<body>
+<div id="searchContainer">
+    <h1> CAN TAITE EAT...</h1>
+    <form class="search">
+        <input type="text" list="allArt" id="dataSearch" list="allArt" onchange="removeIcon();" oninput="removeIcon();" autocomplete="off" placeholder="Search Foods" onkeydown="if (event.keyCode === 13) {
+                            return false;
+                        }"/>
+
+    </form>
+    <datalist id="allArt"></datalist>
+    <h1 id="chosenFood"></h1>
+</div>
+</body>
