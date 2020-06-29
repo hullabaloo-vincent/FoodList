@@ -31,14 +31,30 @@ function removeIcon() {
 function choose(objName, objIndex){
     getColorForPercentage(tagScores[objIndex]);
     var color = rgbToHex(color_r, color_g, color_b);
-    color = color.replace("-", "");
-    color = setCharAt(color,1,'');
-    color = setCharAt(color,1,'');
+    alert(color.length);
+    if (color.length === 9) {
+        color = color.replace("-", "");
+        color = setCharAt(color, 1, '');
+    }
+    if (color.length === 10){
+        color = color.replace("-", "");
+        color = setCharAt(color, 1, '');
+        color = setCharAt(color, 1, '');
+    }
 
     if (objName === ""){
         noMatch()
     }else {
-        $("#chosenFood").html("<h2 style=\"color:" + color + "\"id=\"chosenFood\">" + objName + " : " + tagScores[objIndex] + "</h2>");
+        var informativeText_1 = "";
+        var informativeText_2 = "";
+        if (tagScores[objIndex] >= 50){
+            informativeText_1 = "No. ";
+            informativeText_2 = " is not good for Taite to eat."
+        }else{
+            informativeText_1 = "Yes. ";
+            informativeText_2 = " is alright for Taite to eat."
+        }
+        $("#chosenFood").html("<h2 style=\"color:" + color + "\"id=\"chosenFood\">" + informativeText_1 + " " + objName + informativeText_2 + "</h2><br><h3>Any food that scores over a 50 is considered abnormal and should be avoided. " + objName + " scored a " + tagScores[objIndex] + ".</h3>");
     }
 }
 function noMatch(){
