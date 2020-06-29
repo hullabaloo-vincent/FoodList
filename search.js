@@ -31,7 +31,6 @@ function removeIcon() {
 function choose(objName, objIndex){
     getColorForPercentage(tagScores[objIndex]);
     var color = rgbToHex(color_r, color_g, color_b);
-    alert(color.length);
     if (color.length === 9) {
         color = color.replace("-", "");
         color = setCharAt(color, 1, '');
