@@ -50,17 +50,27 @@ function removeIcon() {
 }
 
 function choose(objName, objIndex){
-    getColorForPercentage(tagScores[objIndex]);
+
+    // RED (100+)        214, 77, 77
+    // DARK ORANGE (85+)  214. 134. 77
+    // DARK YELLOW (60+)  214, 189, 77
+    // YELLOW (50+)        214, 214, 77
+    // YELLOW-GREEN (40+) 189, 214, 77
+    // SOFT GREEN (30+)   150, 214, 77
+    // GREEN (15+)        93, 214, 77
+    // BLUE GREEN (0+)   77, 214, 123
+
+    var color_r, color_g, color_b;
+    if (tagScores[objIndex] >= 0){color_r = 77; color_g = 214; color_b = 123;}
+    if (tagScores[objIndex] >= 15){color_r = 93; color_g = 214; color_b = 77;}
+    if (tagScores[objIndex] >= 30){color_r = 150; color_g = 214; color_b = 77;}
+    if (tagScores[objIndex] >= 40){color_r = 189; color_g = 214; color_b = 77;}
+    if (tagScores[objIndex] >= 50){color_r = 214; color_g = 214; color_b = 77;}
+    if (tagScores[objIndex] >= 60){color_r = 214; color_g = 189; color_b = 77;}
+    if (tagScores[objIndex] >= 85){color_r = 214; color_g = 134; color_b = 77;}
+    if (tagScores[objIndex] >= 100){color_r = 214; color_g = 77; color_b = 77;}
+
     var color = rgbToHex(color_r, color_g, color_b);
-    if (color.length === 9) {
-        color = color.replace("-", "");
-        color = setCharAt(color, 1, '');
-    }
-    if (color.length === 10){
-        color = color.replace("-", "");
-        color = setCharAt(color, 1, '');
-        color = setCharAt(color, 1, '');
-    }
 
     if (objName === ""){
         noMatch()
@@ -92,6 +102,7 @@ function setCharAt(str,index,chr) {
 }
 
 /* ---Scale of 0-100 gradient scale---*/
+/* ---DEPRECATED--- */
 function getColorForPercentage(pct){
     if (pct > 100){
         pct = 100;
