@@ -4,11 +4,31 @@ var scores = "45;2;4;59;68;2;33;9;26;8;0;103;1;25;10;3;55;19;40;31;25;109;26;6;2
 var tagScores = scores.split(';'); //converts string scores into an array
 var savedObj = "";
 var color_r, color_g, color_b = "";
+var isOpen = false;
 
 var percentColors = [
     { pct: 0.0, color: { r: 0x00, g: 0xff, b: 0  } },
     { pct: 0.5, color: { r: 0xff, g: 0xff, b: 0 } },
     { pct: 1.0, color: { r: 0xff, g: 0x00, b: 0  } } ];
+
+
+function closeModal(closeID) {
+    if (closeID === 1) {
+        var modal = document.getElementById('docPopup');
+        modal.style.display = "none";
+        document.getElementById("round").style.visibility = "visible";
+    }
+}
+function openDoc() {
+    if (isOpen) {
+        var modal = document.getElementById('docPopup');
+        modal.style.display = "none";
+    } else {
+        var modal = document.getElementById('docPopup');
+        modal.style.display = "block";
+        document.getElementById("round").style.visibility = "hidden";
+    }
+}
 
 function removeIcon() {
     savedObj = "";
