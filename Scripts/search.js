@@ -84,8 +84,8 @@ function choose(objName, objIndex){
             informativeText_1 = "Yes. ";
             informativeText_2 = " is alright for Taite to eat."
         }
-        let readMoreButton = document.querySelectorAll(".courseButtons");
-        readMoreButton[0].style.display = 'block';
+     //   let readMoreButton = document.querySelectorAll(".courseButtons");
+      //  readMoreButton[0].style.display = 'block';
         $("#chosenFood").html("<h2 style=\"color:" + color + "\"id=\"chosenFood\">" + informativeText_1 + " " + objName + informativeText_2 + "</h2><br><h3>Any food that scores over a 50 is considered abnormal and should be avoided. " + objName + " scored a " + tagScores[objIndex] + ".</h3>");
     }
 }

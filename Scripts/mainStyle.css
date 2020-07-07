@@ -115,6 +115,7 @@ button:focus:not(:active)::after {
     width: 80%;
     text-align: center;
     margin: auto;
+    padding-bottom: 20px;
 }
 input[type="text"]:focus {
     outline: none;
