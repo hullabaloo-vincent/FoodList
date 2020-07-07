@@ -114,7 +114,6 @@ button:focus:not(:active)::after {
 #searchContainer{
     width: 80%;
     text-align: center;
-    //padding: 20px;
     margin: auto;
 }
 input[type="text"]:focus {
