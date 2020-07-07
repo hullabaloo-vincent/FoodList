@@ -112,9 +112,10 @@ button:focus:not(:active)::after {
 }
 
 #searchContainer{
+    width: 80%;
+    text-align: center;
+    //padding: 20px;
     margin: auto;
-    width: 50%;
-    padding: 20px;
 }
 input[type="text"]:focus {
     outline: none;
